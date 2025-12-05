@@ -5,367 +5,456 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Binibining April | Vlogger Portfolio</title>
 
+    <!-- FONTS -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
-
-    <style>
-      body {
-        margin: 0;
-        font-family: "Poppins", sans-serif;
-        background: #e6f3e6;
-        color: #222;
-        opacity: 0;
-        transition: opacity 0.8s ease;
-      }
-      body.loaded {
-        opacity: 1;
-      }
-
-      /* HEADER */
-      header {
-        background: linear-gradient(135deg, #7baf7b, #cde8c5, #e6f3e6);
-        padding: 100px 20px 80px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      header h1 {
-        font-family: "Dancing Script", cursive;
-        font-size: 70px;
-        margin: 0;
-        color: #3f6b3f;
-        animation: fadeDown 1s ease forwards;
-      }
-
-      header p {
-        font-size: 20px;
-        margin-top: 10px;
-        opacity: 0;
-        animation: fadeUp 1s ease 0.3s forwards;
-      }
-
-      /* BUTTONS */
-      .btn-group a,
-      .contact a {
-        display: inline-block;
-        margin: 10px;
-        padding: 12px 28px;
-        background: #3f6b3f;
-        color: white;
-        text-decoration: none;
-        border-radius: 30px;
-        font-size: 15px;
-        transition: 0.3s ease;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      }
-
-      .btn-group a:hover,
-      .contact a:hover {
-        background: #2f5d3a;
-        transform: scale(1.07);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      /* SECTIONS */
-      section {
-        padding: 70px 20px;
-        max-width: 1100px;
-        margin: auto;
-      }
-
-      .section-title {
-        text-align: center;
-        font-size: 36px;
-        margin-bottom: 40px;
-        color: #3f6b3f;
-        text-shadow: 0 0 10px rgba(125, 175, 125, 0.3);
-      }
-
-      /* ABOUT */
-      .about {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 40px;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .about a img {
-        width: 260px;
-        height: 260px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 6px solid #cde8c5;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        transition: transform 0.3s ease;
-      }
-
-      .about a img:hover {
-        transform: scale(1.05);
-      }
-
-      .about-text {
-        max-width: 520px;
-        font-size: 18px;
-        line-height: 1.7;
-      }
-
-      /* VLOG GRID */
-      .vlog-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-      }
-
-      .vlog-card {
-        background: white;
-        border-radius: 15px;
-        padding: 15px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        transition: 0.3s ease;
-      }
-
-      .vlog-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      }
-
-      .vlog-card img {
-        width: 100%;
-        border-radius: 12px;
-        height: 180px;
-        object-fit: cover;
-        object-position: 50% 20%;
-      }
-
-      .vlog-card h3 {
-        margin: 12px 0 6px;
-        font-size: 18px;
-      }
-
-      .vlog-card a {
-        display: inline-block;
-        margin-top: 8px;
-        color: #3f6b3f;
-        font-weight: 600;
-        text-decoration: none;
-      }
-
-      /* SERVICES */
-      .services ul {
-        list-style: none;
-        padding: 0;
-        font-size: 18px;
-        line-height: 2.2;
-        text-align: center;
-      }
-
-      /* CONTACT */
-      .contact {
-        text-align: center;
-      }
-
-      /* ANIMATIONS */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.8s ease;
-      }
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      @keyframes fadeDown {
-        from {
-          opacity: 0;
-          transform: translateY(-20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* FLOATING SHAPES */
-      .floating-shape {
-        position: absolute;
-        width: 80px;
-        height: 80px;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        animation: float 6s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-        100% {
-          transform: translateY(0);
-        }
-      }
-
-      /* WAVE DIVIDER */
-      .wave-divider {
-        height: 80px;
-        background: url("https://svgshare.com/i/ubC.svg") no-repeat center
-          bottom;
-        background-size: cover;
-        animation: waveFloat 6s ease-in-out infinite;
-      }
-
-      @keyframes waveFloat {
-        0% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(6px);
-        }
-        100% {
-          transform: translateY(0);
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <!-- HERO -->
-    <header>
-      <h1>Binibining April</h1>
-      <p>POV-style vlogs showcasing real customer experiences</p>
+    <!-- FLOATING ORBS -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
 
-      <div class="btn-group">
-        <a
-          href="https://www.facebook.com/profile.php?id=100072460063802&mibextid=ZbWKwL"
-          >Facebook Page</a
-        >
-        <a
-          href="mailto:binibiningapril.23@gmail.com?subject=Collaboration%20Inquiry"
-          >Contact Me</a
-        >
+    <!-- NAVBAR -->
+    <nav>
+      <div class="nav-logo">
+        <div class="nav-logo-circle"></div>
+        <span>Binibining April</span>
       </div>
 
-      <div class="floating-shape" style="top: 20px; left: 30px"></div>
-      <div class="floating-shape" style="bottom: 30px; right: 40px"></div>
-    </header>
-
-    <div class="wave-divider"></div>
-
-    <!-- ABOUT -->
-    <section class="fade-in">
-      <h2 class="section-title">About Me</h2>
-
-      <div class="about">
-        <a
-          href="https://www.facebook.com/profile.php?id=100072460063802&mibextid=ZbWKwL"
-          target="_blank"
-        >
-          <img src="images/profile.jpg" alt="Profile Photo" />
-        </a>
-
-        <div class="about-text">
-          Hi! I'm April — a lifestyle and food vlogger who creates authentic,
-          customer-POV content for restaurants, cafés, resorts, and travel
-          destinations. I help businesses reach more customers by showing the
-          real experience from the moment they arrive to the moment they leave.
-        </div>
+      <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
       </div>
-    </section>
 
-    <!-- FEATURED VLOGS -->
-    <section class="fade-in">
-      <h2 class="section-title">Featured Vlogs</h2>
+      <a
+        class="nav-cta"
+        href="mailto:binibiningapril.23@gmail.com?subject=Collaboration%20Inquiry"
+      >
+        Collaborate
+      </a>
+    </nav>
 
-      <div class="vlog-grid">
-        <div class="vlog-card">
-          <img src="images/DS.jpg" alt="" />
-          <h3>Experience the perfect getaway in Dreamscape Villa</h3>
-          <a href="https://www.facebook.com/share/v/183ufXFS3Z/"
-            >Watch on Facebook</a
-          >
+    <main>
+      <!-- HERO SECTION -->
+      <section id="hero" class="hero fade-in">
+        <!-- LEFT: PROFILE + TEXT -->
+        <div class="hero-left">
+          <div class="hero-profile-wrap">
+            <div class="hero-profile">
+              <!-- Replace with your real profile image -->
+              <img src="images/profile.jpg" alt="Binibining April" />
+            </div>
+
+            <div class="hero-meta">
+              <div class="hero-name">Binibining April</div>
+              <div class="hero-tagline">
+                Lifestyle & food vlogger creating authentic customer‑POV
+                experiences.
+              </div>
+              <div class="hero-pill">
+                <span>🎥 POV Vlogs</span> · <span>Food · Travel · Resorts</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-text">
+            I help restaurants, cafés, and destinations reach real customers
+            through immersive POV‑style videos that capture the experience from
+            arrival to “see you again.”
+          </div>
+
+          <div class="hero-buttons">
+            <a
+              class="btn-main"
+              href="https://www.facebook.com/profile.php?id=100072460063802&mibextid=ZbWKwL"
+              target="_blank"
+            >
+              <span>View My Vlogs</span> <span>↗</span>
+            </a>
+            <a
+              class="btn-ghost"
+              href="mailto:binibiningapril.23@gmail.com?subject=Collaboration%20Inquiry"
+            >
+              <span>Book a Feature</span>
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat-block">
+              <div class="hero-stat-label">Specialty</div>
+              <div class="hero-stat-value">Food · Cafés · Resorts</div>
+            </div>
+            <div class="hero-stat-block">
+              <div class="hero-stat-label">Style</div>
+              <div class="hero-stat-value">Real customer POV</div>
+            </div>
+          </div>
         </div>
 
-        <div class="vlog-card">
-          <img src="images/NC.jpg" alt="" />
-          <h3>A new Tambayan with overlooking sunset view here in NAS Cafe</h3>
-          <a href="https://www.facebook.com/share/v/1DEaCW8AKp/"
-            >Watch on Facebook</a
-          >
+        <!-- RIGHT: 3D ORBIT -->
+        <div class="hero-right">
+          <div class="orbit-container">
+            <div class="orbit-bg-ring"></div>
+            <div class="orbit-glow-center"></div>
+
+            <div class="orbit" id="orbit">
+              <!-- 7 ORBIT ITEMS: replace images and captions as needed -->
+              <div class="orbit-item">
+                <div class="orbit-item-inner">
+                  <img src="images/DS.jpg" alt="Dreamscape Villa" />
+                  <div class="orbit-caption">
+                    <div class="orbit-caption-title">
+                      Dreamscape Villa Getaway
+                    </div>
+                    <div class="orbit-caption-tag">
+                      Private resort · POV staycation
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="orbit-item">
+                <div class="orbit-item-inner">
+                  <img src="images/NC.jpg" alt="NAS Café" />
+                  <div class="orbit-caption">
+                    <div class="orbit-caption-title">Sunset at NAS Café</div>
+                    <div class="orbit-caption-tag">
+                      Overlooking view · Coffee moments
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="orbit-item">
+                <div class="orbit-item-inner">
+                  <img src="images/SB.jpg" alt="Summer Bliss" />
+                  <div class="orbit-caption">
+                    <div class="orbit-caption-title">
+                      Summer Bliss in Tanauan
+                    </div>
+                    <div class="orbit-caption-tag">
+                      Pool day · Friends · Relax
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="orbit-item">
+                <div class="orbit-item-inner">
+                  <img src="images/SI1.jpg" alt="Sample Vlog 4" />
+                  <div class="orbit-caption">
+                    <div class="orbit-caption-title">Hidden Café Discovery</div>
+                    <div class="orbit-caption-tag">Cozy corners · Desserts</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="orbit-item">
+                <div class="orbit-item-inner">
+                  <img src="images/SI2.jpg" alt="Sample Vlog 5" />
+                  <div class="orbit-caption">
+                    <div class="orbit-caption-title">Weekend Food Trip</div>
+                    <div class="orbit-caption-tag">
+                      Local flavors · POV bites
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="orbit-item">
+                <div class="orbit-item-inner">
+                  <img src="images/SI3.jpg" alt="Sample Vlog 6" />
+                  <div class="orbit-caption">
+                    <div class="orbit-caption-title">Resort Day Experience</div>
+                    <div class="orbit-caption-tag">Check‑in to sunset</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="orbit-item">
+                <div class="orbit-item-inner">
+                  <img src="images/SI4.jpg" alt="Sample Vlog 7" />
+                  <div class="orbit-caption">
+                    <div class="orbit-caption-title">
+                      City Lights Food Crawl
+                    </div>
+                    <div class="orbit-caption-tag">
+                      Night vibes · Street food
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CONTROLS -->
+            <div class="orbit-controls">
+              <button
+                class="orbit-btn left"
+                id="orbitPrev"
+                aria-label="Previous"
+              >
+                ‹
+              </button>
+              <button class="orbit-btn right" id="orbitNext" aria-label="Next">
+                ›
+              </button>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div class="vlog-card">
-          <img src="images/SB.jpg" alt="" />
-          <h3>Private Resort: Summer Bliss in Tanauan</h3>
-          <a href="https://www.facebook.com/share/v/17XtbPVFwN/"
-            >Watch on Facebook</a
-          >
+      <!-- ABOUT -->
+      <section id="about" class="fade-in">
+        <h2 class="section-title">About</h2>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-highlight">Real experiences, not commercials</div>
+            I’m April — a lifestyle and food vlogger who creates POV‑style
+            content that feels like a friend taking you along for the day. Every
+            vlog is designed from a customer’s perspective: how it feels to
+            arrive, order, explore, relax, and finally say “I’ll be back.”
+            <br /><br />
+            I collaborate with restaurants, cafés, resorts, and destinations
+            that want to showcase their experience in a way that’s warm, honest,
+            and highly shareable. If your brand cares about first impressions,
+            atmosphere, and little details, we’ll work perfectly together.
+          </div>
+
+          <div class="about-photo-card">
+            <!-- Replace with a nice wide photo or a collage -->
+            <img src="images/wave.gif" alt="Binibining April vlogging" />
+            <div class="about-photo-tag">
+              Capturing the feeling of “I want to go there.”
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- SERVICES -->
-    <section class="services fade-in">
-      <h2 class="section-title">Services</h2>
+      <!-- SERVICES -->
+      <section id="services" class="fade-in">
+        <h2 class="section-title">Services</h2>
 
-      <ul>
-        <li>📸 Food & Restaurant Feature</li>
-        <li>☕ Café & Coffee Shop Review</li>
-        <li>🏨 Resort / Staycation Experience</li>
-        <li>✈️ Travel Destination Feature</li>
-        <li>🎥 Short-form Promotional Video</li>
-      </ul>
-    </section>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🍽</div>
+            <div class="service-title">Food & Restaurant Features</div>
+            <div class="service-sub">
+              POV dining experience from menu to last bite.
+            </div>
+            <div>
+              A storytelling video that highlights ambience, best‑sellers, and
+              overall vibe.
+            </div>
+          </div>
 
-    <!-- CONTACT -->
-    <section class="contact fade-in">
-      <h2 class="section-title">Work With Me</h2>
-      <p>For collaborations, bookings, or inquiries:</p>
+          <div class="service-card">
+            <div class="service-icon">☕</div>
+            <div class="service-title">Café & Coffee Shop Vlogs</div>
+            <div class="service-sub">
+              Cozy, aesthetic, and social‑media friendly.
+            </div>
+            <div>
+              Perfect for cafés that want to attract students, remote workers,
+              and weekend barkadas.
+            </div>
+          </div>
 
+          <div class="service-card">
+            <div class="service-icon">🏖</div>
+            <div class="service-title">Resort & Staycation POV</div>
+            <div class="service-sub">From check‑in to check‑out.</div>
+            <div>
+              Show what guests will really experience: rooms, pools, views, and
+              hidden spots.
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">✈️</div>
+            <div class="service-title">Travel Destination Highlights</div>
+            <div class="service-sub">
+              Discover‑style vlogs for new or underrated spots.
+            </div>
+            <div>
+              Great for tourism pages, local getaways, and unique experiences.
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🎬</div>
+            <div class="service-title">Short‑Form Promo Clips</div>
+            <div class="service-sub">Optimized for Facebook & Reels.</div>
+            <div>
+              Quick, engaging cuts that instantly communicate what makes your
+              place special.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact-section fade-in">
+        <h2 class="section-title">Work With Me</h2>
+        <p>
+          Ready to feature your restaurant, café, resort, or destination? Let’s
+          create a vlog your future customers will love watching.
+        </p>
+
+        <div class="contact-buttons">
+          <a
+            class="btn-main"
+            href="https://www.facebook.com/profile.php?id=100072460063802&mibextid=ZbWKwL"
+            target="_blank"
+          >
+            Message me on Facebook
+          </a>
+          <a
+            class="btn-ghost"
+            href="mailto:binibiningapril.23@gmail.com?subject=Collaboration%20Inquiry"
+          >
+            Email for collaboration
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      © <span id="year"></span> Binibining April · POV Vlogs & Features ·
       <a
         href="https://www.facebook.com/profile.php?id=100072460063802&mibextid=ZbWKwL"
-        >Message on Facebook</a
+        target="_blank"
+        >Facebook</a
       >
-      <a
-        href="mailto:binibiningapril.23@gmail.com?subject=Collaboration%20Inquiry"
-        >Email Me</a
-      >
-    </section>
+    </footer>
 
-    <!-- JS -->
     <script>
-      window.onload = () => {
+      // PAGE LOAD
+      window.addEventListener("load", () => {
         document.body.classList.add("loaded");
-      };
-
-      const elements = document.querySelectorAll(".fade-in");
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
+        document.getElementById("year").textContent = new Date().getFullYear();
       });
 
-      elements.forEach((el) => observer.observe(el));
+      // FADE-IN ON SCROLL
+      const fadeEls = document.querySelectorAll(".fade-in");
+      const fadeObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              fadeObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      fadeEls.forEach((el) => fadeObserver.observe(el));
+
+      // TRUE 3D HORIZONTAL ORBIT
+      (function () {
+        const orbit = document.getElementById("orbit");
+        const items = Array.from(orbit.querySelectorAll(".orbit-item"));
+        const total = items.length;
+
+        let currentIndex = 0;
+        let angleStep = (2 * Math.PI) / total;
+        let radiusX = 170;
+        let radiusZ = 230;
+        let autoRotateTimer = null;
+
+        function positionItems() {
+          for (let i = 0; i < total; i++) {
+            const item = items[i];
+            const idxOffset = (i - currentIndex + total) % total;
+            const angle = idxOffset * angleStep;
+
+            // orbit positions
+            const x = radiusX * Math.sin(angle);
+            const z = radiusZ * Math.cos(angle);
+            const y = 0;
+
+            // normalized depth
+            const normalizedZ = (z + radiusZ) / (2 * radiusZ);
+            const scale = 0.55 + normalizedZ * 0.75;
+            const opacity = 0.2 + normalizedZ * 0.8;
+
+            // ✅ KEEP CENTERING, ADD ORBIT TRANSFORM AFTER
+            item.style.transform = `
+        translate(-50%, -50%)
+        translate3d(${x}px, ${y}px, ${z}px)
+        scale(${scale})
+      `;
+
+            item.style.opacity = opacity.toFixed(2);
+            item.style.zIndex = Math.round(z);
+
+            // detect center item
+            const isCenter =
+              Math.abs(angle) < angleStep / 2 ||
+              Math.abs(angle - 2 * Math.PI) < angleStep / 2;
+
+            item.classList.toggle("center", isCenter);
+
+            // dynamic size
+            const baseWidth = 130;
+            const baseHeight = 170;
+            item.style.width = baseWidth + normalizedZ * 90 + "px";
+            item.style.height = baseHeight + normalizedZ * 70 + "px";
+          }
+        }
+
+        function rotate(delta = 1) {
+          currentIndex = (currentIndex + delta + total) % total;
+          positionItems();
+        }
+
+        // initial
+        positionItems();
+
+        // auto rotate
+        function startAutoRotate() {
+          autoRotateTimer = setInterval(() => rotate(1), 3500);
+        }
+
+        function stopAutoRotate() {
+          clearInterval(autoRotateTimer);
+          autoRotateTimer = null;
+        }
+
+        startAutoRotate();
+
+        // buttons
+        document.getElementById("orbitPrev").addEventListener("click", () => {
+          stopAutoRotate();
+          rotate(-1);
+          startAutoRotate();
+        });
+
+        document.getElementById("orbitNext").addEventListener("click", () => {
+          stopAutoRotate();
+          rotate(1);
+          startAutoRotate();
+        });
+
+        // pause on hover
+        orbit.addEventListener("mouseenter", stopAutoRotate);
+        orbit.addEventListener("mouseleave", startAutoRotate);
+
+        // responsive radii
+        window.addEventListener("resize", () => {
+          const width = orbit.offsetWidth;
+          radiusX = Math.min(170, width * 0.35);
+          radiusZ = Math.min(230, width * 0.45);
+          positionItems();
+        });
+      })();
     </script>
   </body>
 </html>

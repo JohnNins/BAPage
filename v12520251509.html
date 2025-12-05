@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binibining April | Vlogger Portfolio</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: #e6f3e6;
+        color: #222;
+        opacity: 0;
+        transition: opacity 0.8s ease;
+      }
+      body.loaded {
+        opacity: 1;
+      }
+
+      /* HEADER */
+      header {
+        background: linear-gradient(135deg, #7baf7b, #cde8c5, #e6f3e6);
+        padding: 100px 20px 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      header h1 {
+        font-family: "Dancing Script", cursive;
+        font-size: 70px;
+        margin: 0;
+        color: #3f6b3f;
+        animation: fadeDown 1s ease forwards;
+      }
+
+      header p {
+        font-size: 20px;
+        margin-top: 10px;
+        opacity: 0;
+        animation: fadeUp 1s ease 0.3s forwards;
+      }
+
+      /* BUTTONS */
+      .btn-group a,
+      .contact a {
+        display: inline-block;
+        margin: 10px;
+        padding: 12px 28px;
+        background: #3f6b3f;
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-size: 15px;
+        transition: 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .btn-group a:hover,
+      .contact a:hover {
+        background: #2f5d3a;
+        transform: scale(1.07);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* SECTIONS */
+      section {
+        padding: 70px 20px;
+        max-width: 1100px;
+        margin: auto;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 40px;
+        color: #3f6b3f;
+        text-shadow: 0 0 10px rgba(125, 175, 125, 0.3);
+      }
+
+      /* ABOUT */
+      .about {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .about a img {
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 6px solid #cde8c5;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+      }
+
+      .about a img:hover {
+        transform: scale(1.05);
+      }
+
+      .about-text {
+        max-width: 520px;
+        font-size: 18px;
+        line-height: 1.7;
+      }
+
+      /* VLOG GRID */
+      .vlog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .vlog-card {
+        background: white;
+        border-radius: 15px;
+        padding: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: 0.3s ease;
+      }
+
+      .vlog-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .vlog-card img {
+        width: 100%;
+        border-radius: 12px;
+        height: 180px;
+        object-fit: cover;
+        object-position: 50% 20%;
+      }
+
+      .vlog-card h3 {
+        margin: 12px 0 6px;
+        font-size: 18px;
+      }
+
+      .vlog-card a {
+        display: inline-block;
+        margin-top: 8px;
+        color: #3f6b3f;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      /* SERVICES */
+      .services ul {
+        list-style: none;
+        padding: 0;
+        font-size: 18px;
+        line-height: 2.2;
+        text-align: center;
+      }
+
+      /* CONTACT */
+      .contact {
+        text-align: center;
+      }
+
+      /* ANIMATIONS */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* FLOATING SHAPES */
+      .floating-shape {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      /* WAVE DIVIDER */
+      .wave-divider {
+        height: 80px;
+        background: url("https://svgshare.com/i/ubC.svg") no-repeat center
+          bottom;
+        background-size: cover;
+        animation: waveFloat 6s ease-in-out infinite;
+      }
+
+      @keyframes waveFloat {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(6px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HERO -->
+    <header>
+      <h1>Binibining April</h1>
+      <p>POV-style vlogs showcasing real customer experiences</p>
+
+      <div class="btn-group">
+        <a
+          href="https://www.facebook.com/profile.php?id=100072460063802&mibextid=ZbWKwL"
+          >Facebook Page</a
+        >
+        <a
+          href="mailto:binibiningapril.23@gmail.com?subject=Collaboration%20Inquiry"
+          >Contact Me</a
+        >
+      </div>
+
+      <div class="floating-shape" style="top: 20px; left: 30px"></div>
+      <div class="floating-shape" style="bottom: 30px; right: 40px"></div>
+    </header>
+
+    <div class="wave-divider"></div>
+
+    <!-- ABOUT -->
+    <section class="fade-in">
+      <h2 class="section-title">About Me</h2>
+
+      <div class="about">
+        <a
+          href="https://www.facebook.com/profile.php?id=100072460063802&mibextid=ZbWKwL"
+          target="_blank"
+        >
+          <img src="images/profile.jpg" alt="Profile Photo" />
+        </a>
+
+        <div class="about-text">
+          Hi! I'm April — a lifestyle and food vlogger who creates authentic,
+          customer-POV content for restaurants, cafés, resorts, and travel
+          destinations. I help businesses reach more customers by showing the
+          real experience from the moment they arrive to the moment they leave.
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED VLOGS -->
+    <section class="fade-in">
+      <h2 class="section-title">Featured Vlogs</h2>
+
+      <div class="vlog-grid">
+        <div class="vlog-card">
+          <img src="images/DS.jpg" alt="" />
+          <h3>Experience the perfect getaway in Dreamscape Villa</h3>
+          <a href="https://www.facebook.com/share/v/183ufXFS3Z/"
+            >Watch on Facebook</a
+          >
+        </div>
+
+        <div class="vlog-card">
+          <img src="images/NC.jpg" alt="" />
+          <h3>A new Tambayan with overlooking sunset view here in NAS Cafe</h3>
+          <a href="https://www.facebook.com/share/v/1DEaCW8AKp/"
+            >Watch on Facebook</a
+          >
+        </div>
+
+        <div class="vlog-card">
+          <img src="images/SB.jpg" alt="" />
+          <h3>Private Resort: Summer Bliss in Tanauan</h3>
+          <a href="https://www.facebook.com/share/v/17XtbPVFwN/"
+            >Watch on Facebook</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services fade-in">
+      <h2 class="section-title">Services</h2>
+
+      <ul>
+        <li>📸 Food & Restaurant Feature</li>
+        <li>☕ Café & Coffee Shop Review</li>
+        <li>🏨 Resort / Staycation Experience</li>
+        <li>✈️ Travel Destination Feature</li>
+        <li>🎥 Short-form Promotional Video</li>
+      </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact fade-in">
+      <h2 class="section-title">Work With Me</h2>
+      <p>For collaborations, bookings, or inquiries:</p>
+
+      <a
+        href="https://www.facebook.com/profile.php?id=100072460063802&mibextid=ZbWKwL"
+        >Message on Facebook</a
+      >
+      <a
+        href="mailto:binibiningapril.23@gmail.com?subject=Collaboration%20Inquiry"
+        >Email Me</a
+      >
+    </section>
+
+    <!-- JS -->
+    <script>
+      window.onload = () => {
+        document.body.classList.add("loaded");
+      };
+
+      const elements = document.querySelectorAll(".fade-in");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      });
+
+      elements.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
