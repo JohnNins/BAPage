@@ -4,106 +4,151 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Binibining April | Vlogger Portfolio</title>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
 
     <style>
+      /* PAGE LOAD FADE */
       body {
         margin: 0;
         font-family: "Poppins", sans-serif;
         background: #f7f7f7;
         color: #222;
+        opacity: 0;
+        transition: opacity 0.8s ease;
+      }
+      body.loaded {
+        opacity: 1;
       }
 
+      /* HERO */
       header {
-        background: #a8e6a1;
-        padding: 60px 20px;
+        background: linear-gradient(135deg, #a8e6a1, #d4f8d4);
+        padding: 80px 20px;
         text-align: center;
+        position: relative;
+        overflow: hidden;
       }
 
       header h1 {
         font-family: "Dancing Script", cursive;
-        font-size: 60px;
+        font-size: 70px;
         margin: 0;
         color: #2f5d3a;
+        animation: fadeDown 1s ease forwards;
       }
 
       header p {
-        font-size: 18px;
+        font-size: 20px;
         margin-top: 10px;
+        opacity: 0;
+        animation: fadeUp 1s ease 0.3s forwards;
       }
 
-      .btn-group a {
+      /* BUTTONS */
+      .btn-group a,
+      .contact a {
         display: inline-block;
         margin: 10px;
-        padding: 12px 25px;
+        padding: 12px 28px;
         background: #2f5d3a;
         color: white;
         text-decoration: none;
-        border-radius: 25px;
-        font-size: 14px;
+        border-radius: 30px;
+        font-size: 15px;
+        transition: 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       }
 
+      .btn-group a:hover,
+      .contact a:hover {
+        background: #3b7a4a;
+        transform: scale(1.07);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* SECTIONS */
       section {
-        padding: 60px 20px;
+        padding: 70px 20px;
         max-width: 1100px;
         margin: auto;
       }
 
       .section-title {
         text-align: center;
-        font-size: 32px;
+        font-size: 36px;
         margin-bottom: 40px;
         color: #2f5d3a;
+        position: relative;
       }
 
+      .section-title::after {
+        content: "";
+        width: 60px;
+        height: 4px;
+        background: #2f5d3a;
+        display: block;
+        margin: 10px auto 0;
+        border-radius: 2px;
+      }
+
+      /* ABOUT */
       .about {
         display: flex;
         flex-wrap: wrap;
-        gap: 30px;
+        gap: 40px;
         align-items: center;
         justify-content: center;
       }
 
       .about img {
-        width: 250px;
-        height: 250px;
+        width: 260px;
+        height: 260px;
         border-radius: 50%;
         object-fit: cover;
-        border: 5px solid #a8e6a1;
+        border: 6px solid #a8e6a1;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       }
 
       .about-text {
-        max-width: 500px;
+        max-width: 520px;
         font-size: 18px;
-        line-height: 1.6;
+        line-height: 1.7;
       }
 
+      /* VLOG CARDS */
       .vlog-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
+        gap: 30px;
       }
 
       .vlog-card {
         background: white;
         border-radius: 15px;
         padding: 15px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: 0.3s ease;
+      }
+
+      .vlog-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       }
 
       .vlog-card img {
         width: 100%;
-        border-radius: 10px;
+        border-radius: 12px;
         height: 180px;
         object-fit: cover;
         object-position: 50% 20%;
       }
 
       .vlog-card h3 {
-        margin: 10px 0 5px;
+        margin: 12px 0 6px;
         font-size: 18px;
       }
 
@@ -115,25 +160,52 @@
         text-decoration: none;
       }
 
+      /* SERVICES */
       .services ul {
         list-style: none;
         padding: 0;
         font-size: 18px;
-        line-height: 2;
+        line-height: 2.2;
+        text-align: center;
       }
 
+      /* CONTACT */
       .contact {
         text-align: center;
       }
 
-      .contact a {
-        display: inline-block;
-        margin: 10px;
-        padding: 12px 25px;
-        background: #2f5d3a;
-        color: white;
-        text-decoration: none;
-        border-radius: 25px;
+      /* SCROLL ANIMATIONS */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* KEYFRAMES */
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     </style>
   </head>
@@ -147,18 +219,20 @@
       <div class="btn-group">
         <a
           href="https://www.facebook.com/profile.php?id=100072460063802&mibextid=ZbWKwL"
-          >Facebook Page</a
         >
-        <!-- <a href="#">TikTok Profile</a> -->
+          Facebook Page
+        </a>
+
         <a
           href="mailto:binibiningapril.23@gmail.com?subject=Collaboration%20Inquiry"
-          >Contact Me</a
         >
+          Contact Me
+        </a>
       </div>
     </header>
 
     <!-- ABOUT -->
-    <section>
+    <section class="fade-in">
       <h2 class="section-title">About Me</h2>
 
       <div class="about">
@@ -174,7 +248,7 @@
     </section>
 
     <!-- FEATURED VLOGS -->
-    <section>
+    <section class="fade-in">
       <h2 class="section-title">Featured Vlogs</h2>
 
       <div class="vlog-grid">
@@ -183,8 +257,7 @@
           <h3>Experience the perfect getaway in Dreamscape Villa</h3>
           <a href="https://www.facebook.com/share/v/183ufXFS3Z/"
             >Watch on Facebook</a
-          ><br />
-          <!-- <a href="#">Watch on TikTok</a> -->
+          >
         </div>
 
         <div class="vlog-card">
@@ -192,8 +265,7 @@
           <h3>A new Tambayan with overlooking sunset view here in NAS Cafe</h3>
           <a href="https://www.facebook.com/share/v/1DEaCW8AKp/"
             >Watch on Facebook</a
-          ><br />
-          <!-- <a href="#">Watch on TikTok</a> -->
+          >
         </div>
 
         <div class="vlog-card">
@@ -201,14 +273,13 @@
           <h3>Private Resort: Summer Bliss in Tanauan</h3>
           <a href="https://www.facebook.com/share/v/17XtbPVFwN/"
             >Watch on Facebook</a
-          ><br />
-          <!-- <a href="#">Watch on TikTok</a> -->
+          >
         </div>
       </div>
     </section>
 
     <!-- SERVICES -->
-    <section class="services">
+    <section class="services fade-in">
       <h2 class="section-title">Services</h2>
 
       <ul>
@@ -221,19 +292,40 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="contact">
+    <section class="contact fade-in">
       <h2 class="section-title">Work With Me</h2>
       <p>For collaborations, bookings, or inquiries:</p>
 
       <a
         href="https://www.facebook.com/profile.php?id=100072460063802&mibextid=ZbWKwL"
-        >Message on Facebook</a
       >
-      <!-- <a href="#">TikTok Profile</a> -->
+        Message on Facebook
+      </a>
+
       <a
         href="mailto:binibiningapril.23@gmail.com?subject=Collaboration%20Inquiry"
-        >Email Me</a
       >
+        Email Me
+      </a>
     </section>
+
+    <!-- JS FOR SCROLL ANIMATIONS + PAGE LOAD -->
+    <script>
+      window.onload = () => {
+        document.body.classList.add("loaded");
+      };
+
+      const elements = document.querySelectorAll(".fade-in");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      });
+
+      elements.forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>
