@@ -440,12 +440,16 @@
         overflow: hidden;
         background: rgba(255, 255, 255, 0.88);
         box-shadow: 0 10px 30px rgba(60, 111, 77, 0.1);
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
       }
 
       .orbit-item-inner {
         display: flex;
         flex-direction: column;
         height: 100%;
+        width: 100%;
       }
 
       .orbit-item img {
@@ -693,8 +697,9 @@
         .hero-left {
           padding: 18px;
         }
-        .hero-profile-wrap {
-          flex-direction: row;
+        .hero-profile img {
+          width: 92px;
+          height: 92px;
         }
         .orbit-container {
           max-width: 100%;
@@ -712,11 +717,11 @@
     <!-- NAVBAR -->
     <nav>
       <div class="nav-logo">
-        <div class="nav-logo-circle"></div>
+        <div class="nav-logo-circle" aria-hidden="true"></div>
         <span>Binibining April</span>
       </div>
 
-      <div class="nav-links">
+      <div class="nav-links" aria-hidden="false">
         <a href="#hero">Home</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -738,17 +743,29 @@
         <div class="hero-left">
           <div class="hero-profile-wrap">
             <div class="hero-profile">
-              <!-- Replace with your real profile image -->
-              <img src="images/profile.jpg" alt="Binibining April" />
+              <!-- Make profile image clickable to Facebook -->
+              <a
+                href="https://www.facebook.com/profile.php?id=100072460063802&mibextid=ZbWKwL"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open April's Facebook page (new tab)"
+                title="Open Facebook page"
+              >
+                <img
+                  id="profileImg"
+                  src="images/profile.jpg"
+                  alt="Binibining April"
+                />
+              </a>
             </div>
 
             <div class="hero-meta">
               <div class="hero-name">Binibining April</div>
               <div class="hero-tagline">
-                Lifestyle & food vlogger creating authentic customer‑POV
+                Lifestyle & food vlogger creating authentic customer-POV
                 experiences.
               </div>
-              <div class="hero-pill">
+              <div class="hero-pill" aria-hidden="true">
                 <span>🎥 POV Vlogs</span> · <span>Food · Travel · Resorts</span>
               </div>
             </div>
@@ -756,7 +773,7 @@
 
           <div class="hero-text">
             I help restaurants, cafés, and destinations reach real customers
-            through immersive POV‑style videos that capture the experience from
+            through immersive POV-style videos that capture the experience from
             arrival to “see you again.”
           </div>
 
@@ -776,7 +793,7 @@
             </a>
           </div>
 
-          <div class="hero-stats">
+          <div class="hero-stats" aria-hidden="true">
             <div class="hero-stat-block">
               <div class="hero-stat-label">Specialty</div>
               <div class="hero-stat-value">Food · Cafés · Resorts</div>
@@ -790,15 +807,18 @@
 
         <!-- RIGHT: 3D ORBIT -->
         <div class="hero-right">
-          <div class="orbit-container">
-            <div class="orbit-bg-ring"></div>
-            <div class="orbit-glow-center"></div>
+          <div class="orbit-container" aria-hidden="false">
+            <div class="orbit-bg-ring" aria-hidden="true"></div>
+            <div class="orbit-glow-center" aria-hidden="true"></div>
 
-            <div class="orbit" id="orbit">
-              <!-- 7 ORBIT ITEMS: replace images and captions as needed -->
+            <div class="orbit" id="orbit" aria-live="polite">
+              <!-- 7 ORBIT ITEMS -->
               <div class="orbit-item">
                 <div class="orbit-item-inner">
-                  <img src="images/DS.jpg" alt="Dreamscape Villa" />
+                  <img
+                    data-src="images/dreamscape1x1.jpg"
+                    alt="Dreamscape Villa"
+                  />
                   <div class="orbit-caption">
                     <div class="orbit-caption-title">
                       Dreamscape Villa Getaway
@@ -812,7 +832,7 @@
 
               <div class="orbit-item">
                 <div class="orbit-item-inner">
-                  <img src="images/NC.jpg" alt="NAS Café" />
+                  <img data-src="images/nas cafe1x1.jpg" alt="NAS Café" />
                   <div class="orbit-caption">
                     <div class="orbit-caption-title">Sunset at NAS Café</div>
                     <div class="orbit-caption-tag">
@@ -824,7 +844,10 @@
 
               <div class="orbit-item">
                 <div class="orbit-item-inner">
-                  <img src="images/SB.jpg" alt="Summer Bliss" />
+                  <img
+                    data-src="images/summer bliss1x1.jpg"
+                    alt="Summer Bliss"
+                  />
                   <div class="orbit-caption">
                     <div class="orbit-caption-title">
                       Summer Bliss in Tanauan
@@ -838,7 +861,10 @@
 
               <div class="orbit-item">
                 <div class="orbit-item-inner">
-                  <img src="images/SI1.jpg" alt="Sample Vlog 4" />
+                  <img
+                    data-src="images/vlog4.jpg"
+                    alt="Hidden Café Discovery"
+                  />
                   <div class="orbit-caption">
                     <div class="orbit-caption-title">Hidden Café Discovery</div>
                     <div class="orbit-caption-tag">Cozy corners · Desserts</div>
@@ -848,7 +874,7 @@
 
               <div class="orbit-item">
                 <div class="orbit-item-inner">
-                  <img src="images/SI2.jpg" alt="Sample Vlog 5" />
+                  <img data-src="images/vlog5.jpg" alt="Weekend Food Trip" />
                   <div class="orbit-caption">
                     <div class="orbit-caption-title">Weekend Food Trip</div>
                     <div class="orbit-caption-tag">
@@ -860,17 +886,23 @@
 
               <div class="orbit-item">
                 <div class="orbit-item-inner">
-                  <img src="images/SI3.jpg" alt="Sample Vlog 6" />
+                  <img
+                    data-src="images/vlog6.jpg"
+                    alt="Resort Day Experience"
+                  />
                   <div class="orbit-caption">
                     <div class="orbit-caption-title">Resort Day Experience</div>
-                    <div class="orbit-caption-tag">Check‑in to sunset</div>
+                    <div class="orbit-caption-tag">Check-in to sunset</div>
                   </div>
                 </div>
               </div>
 
               <div class="orbit-item">
                 <div class="orbit-item-inner">
-                  <img src="images/SI4.jpg" alt="Sample Vlog 7" />
+                  <img
+                    data-src="images/vlog7.jpg"
+                    alt="City Lights Food Crawl"
+                  />
                   <div class="orbit-caption">
                     <div class="orbit-caption-title">
                       City Lights Food Crawl
@@ -884,15 +916,21 @@
             </div>
 
             <!-- CONTROLS -->
-            <div class="orbit-controls">
+            <div class="orbit-controls" aria-hidden="false">
               <button
                 class="orbit-btn left"
                 id="orbitPrev"
                 aria-label="Previous"
+                title="Previous"
               >
                 ‹
               </button>
-              <button class="orbit-btn right" id="orbitNext" aria-label="Next">
+              <button
+                class="orbit-btn right"
+                id="orbitNext"
+                aria-label="Next"
+                title="Next"
+              >
                 ›
               </button>
             </div>
@@ -907,7 +945,7 @@
         <div class="about-grid">
           <div class="about-card">
             <div class="about-highlight">Real experiences, not commercials</div>
-            I’m April — a lifestyle and food vlogger who creates POV‑style
+            I’m April — a lifestyle and food vlogger who creates POV-style
             content that feels like a friend taking you along for the day. Every
             vlog is designed from a customer’s perspective: how it feels to
             arrive, order, explore, relax, and finally say “I’ll be back.”
@@ -920,7 +958,11 @@
 
           <div class="about-photo-card">
             <!-- Replace with a nice wide photo or a collage -->
-            <img src="images/about-photo.jpg" alt="Binibining April vlogging" />
+            <img
+              id="aboutPhoto"
+              src="images/about-photo.jpg"
+              alt="Binibining April vlogging"
+            />
             <div class="about-photo-tag">
               Capturing the feeling of “I want to go there.”
             </div>
@@ -940,7 +982,7 @@
               POV dining experience from menu to last bite.
             </div>
             <div>
-              A storytelling video that highlights ambience, best‑sellers, and
+              A storytelling video that highlights ambience, best-sellers, and
               overall vibe.
             </div>
           </div>
@@ -949,7 +991,7 @@
             <div class="service-icon">☕</div>
             <div class="service-title">Café & Coffee Shop Vlogs</div>
             <div class="service-sub">
-              Cozy, aesthetic, and social‑media friendly.
+              Cozy, aesthetic, and social-media friendly.
             </div>
             <div>
               Perfect for cafés that want to attract students, remote workers,
@@ -960,7 +1002,7 @@
           <div class="service-card">
             <div class="service-icon">🏖</div>
             <div class="service-title">Resort & Staycation POV</div>
-            <div class="service-sub">From check‑in to check‑out.</div>
+            <div class="service-sub">From check-in to check-out.</div>
             <div>
               Show what guests will really experience: rooms, pools, views, and
               hidden spots.
@@ -971,7 +1013,7 @@
             <div class="service-icon">✈️</div>
             <div class="service-title">Travel Destination Highlights</div>
             <div class="service-sub">
-              Discover‑style vlogs for new or underrated spots.
+              Discover-style vlogs for new or underrated spots.
             </div>
             <div>
               Great for tourism pages, local getaways, and unique experiences.
@@ -980,7 +1022,7 @@
 
           <div class="service-card">
             <div class="service-icon">🎬</div>
-            <div class="service-title">Short‑Form Promo Clips</div>
+            <div class="service-title">Short-Form Promo Clips</div>
             <div class="service-sub">Optimized for Facebook & Reels.</div>
             <div>
               Quick, engaging cuts that instantly communicate what makes your
@@ -1003,6 +1045,7 @@
             class="btn-main"
             href="https://www.facebook.com/profile.php?id=100072460063802&mibextid=ZbWKwL"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Message me on Facebook
           </a>
@@ -1022,6 +1065,7 @@
       <a
         href="https://www.facebook.com/profile.php?id=100072460063802&mibextid=ZbWKwL"
         target="_blank"
+        rel="noopener noreferrer"
         >Facebook</a
       >
     </footer>
@@ -1031,26 +1075,104 @@
       window.addEventListener("load", () => {
         document.body.classList.add("loaded");
         document.getElementById("year").textContent = new Date().getFullYear();
+        observeFade();
+        lazyLoadOrbitImages();
       });
 
-      // FADE-IN ON SCROLL
-      const fadeEls = document.querySelectorAll(".fade-in");
-      const fadeObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              fadeObserver.unobserve(entry.target);
-            }
+      // FADE-IN ON SCROLL (function extracted so we can call from load)
+      function observeFade() {
+        const fadeEls = document.querySelectorAll(".fade-in");
+        const fadeObserver = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        fadeEls.forEach((el) => fadeObserver.observe(el));
+      }
+
+      // IMAGE SANITIZER / FALLBACKS: encode spaces and try alternate filenames
+      function safeLoadImage(img) {
+        if (!img) return;
+        const orig = img.getAttribute("src") || img.dataset.src;
+        if (!orig) return;
+
+        // try the current value first (may be data-src)
+        function setFallbackSvg(el) {
+          el.onerror = null;
+          el.src =
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect width='100%25' height='100%25' fill='%23e8f6e8'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23777' font-family='Poppins,Arial' font-size='16'%3EImage not found%3C/text%3E%3C/svg%3E";
+        }
+
+        // Helper to try a path and attach fallback
+        function tryPath(path, cb) {
+          img.onerror = () => cb(false);
+          img.onload = () => cb(true);
+          img.src = path;
+        }
+
+        // If the src contains spaces, encode them
+        const encoded = encodeURI(orig);
+        if (encoded !== orig) {
+          tryPath(encoded, (ok) => {
+            if (ok) return;
+            // try replacing spaces with hyphen
+            const hyphen = orig.replace(/\s+/g, "-");
+            tryPath(hyphen, (ok2) => {
+              if (ok2) return;
+              // try removing spaces
+              const nospace = orig.replace(/\s+/g, "");
+              tryPath(nospace, (ok3) => {
+                if (ok3) return;
+                // final fallback SVG
+                setFallbackSvg(img);
+              });
+            });
           });
-        },
-        { threshold: 0.15 }
-      );
-      fadeEls.forEach((el) => fadeObserver.observe(el));
+        } else {
+          // no spaces: try original, then with hyphens
+          tryPath(orig, (ok) => {
+            if (ok) return;
+            const hyphen = orig.replace(/\s+/g, "-");
+            tryPath(hyphen, (ok2) => {
+              if (ok2) return;
+              setFallbackSvg(img);
+            });
+          });
+        }
+      }
+
+      // lazy-load images inside orbit (data-src) and apply safe loading
+      function lazyLoadOrbitImages() {
+        const imgs = document.querySelectorAll(".orbit img");
+        imgs.forEach((img) => {
+          // If the img already has src attribute, still run safe loader
+          // Use data-src as authoritative; fallback to src if not set
+          if (img.dataset.src) {
+            // set a small placeholder first
+            img.src =
+              "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f3f7f3'/%3E%3C/svg%3E";
+            // attempt to safely load
+            safeLoadImage(img);
+          } else {
+            safeLoadImage(img);
+          }
+        });
+
+        // also safe-load single images outside orbit (about-photo, profile)
+        safeLoadImage(document.getElementById("aboutPhoto"));
+        safeLoadImage(document.getElementById("profileImg"));
+      }
 
       // TRUE 3D HORIZONTAL ORBIT
       (function () {
         const orbit = document.getElementById("orbit");
+        if (!orbit) return;
         const items = Array.from(orbit.querySelectorAll(".orbit-item"));
         const total = items.length; // 7
         let currentIndex = 0;
@@ -1062,42 +1184,42 @@
         function positionItems() {
           for (let i = 0; i < total; i++) {
             const item = items[i];
-            const idxOffset = (i - currentIndex + total) % total;
-            const angle = idxOffset * angleStep;
+            // compute offset relative to currentIndex with signed range -floor..+ceil
+            let offset = i - currentIndex;
+            // wrap to shortest direction
+            if (offset > total / 2) offset -= total;
+            if (offset < -total / 2) offset += total;
+            const angle = offset * angleStep;
 
-            // x, z positions
+            // x, z positions (z used for depth)
             const x = radiusX * Math.sin(angle);
             const z = radiusZ * Math.cos(angle);
 
-            // scale + opacity based on z
-            const normalizedZ = (z + radiusZ) / (2 * radiusZ); // 0 to 1
-            const scale = 0.55 + normalizedZ * 0.75; // 0.55 to 1.3
-            const opacity = 0.2 + normalizedZ * 0.8; // 0.2 to 1.0
+            // normalized z 0..1
+            const normalizedZ = (z + radiusZ) / (2 * radiusZ);
+            const scale = 0.55 + normalizedZ * 0.75; // 0.55 -> 1.3
+            const opacity = 0.18 + normalizedZ * 0.82; // 0.18 -> 1.0
 
-            const y = 0; // keep same vertical level
+            const y = 0;
 
-            item.style.transform = `
-            translate3d(${x}px, ${y}px, ${z}px)
-            scale(${scale})
-          `;
+            // use translate3d with perspective; z translation appears via translateZ, but many browsers treat translate3d z as visual
+            item.style.transform = `translate3d(${x}px, ${y}px, ${-z}px) scale(${scale})`;
             item.style.opacity = opacity.toFixed(2);
-            item.style.zIndex = Math.round(z);
+            // z-index based on normalizedZ
+            item.style.zIndex = Math.round(normalizedZ * 100);
 
-            // center detection: angle close to 0 (front)
-            const isCenter =
-              Math.abs(angle) < angleStep / 2 ||
-              Math.abs(angle - 2 * Math.PI) < angleStep / 2;
-            if (isCenter) {
+            // center detection: offset === 0
+            if (offset === 0) {
               item.classList.add("center");
             } else {
               item.classList.remove("center");
             }
 
-            // size of cards (smaller for far items, bigger for front)
+            // size of cards
             const baseWidth = 130;
             const baseHeight = 170;
-            const w = baseWidth + normalizedZ * 90; // 130→220
-            const h = baseHeight + normalizedZ * 70; // 170→240
+            const w = Math.round(baseWidth + normalizedZ * 90); // 130→220
+            const h = Math.round(baseHeight + normalizedZ * 70); // 170→240
             item.style.width = w + "px";
             item.style.height = h + "px";
           }
@@ -1111,11 +1233,11 @@
         // initial placement
         positionItems();
 
-        // auto-rotate
         function startAutoRotate() {
+          stopAutoRotate();
           autoRotateTimer = setInterval(() => {
             rotate(1);
-          }, 3500); // slow elegant rotation
+          }, 3500);
         }
 
         function stopAutoRotate() {
